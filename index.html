@@ -1,0 +1,278 @@
+PE html> 
+<html lang="uk"> 
+<head> 
+    <meta charset="UTF-8"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <title>Квітковий магазин</title> 
+    <link rel="stylesheet" href="styles.css"> 
+    <!-- Підключення бібліотеки Slick Carousel CSS --> 
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css"/> 
+    <!-- Підключення бібліотеки Slick Carousel Theme CSS --> 
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css"/> 
+    <style>
+        /* Додані стилі для покращення дизайну */
+        body {
+    background: linear-gradient(135deg, #fbc3e5, #aaa8f3,  #daf3a8); /* Рожевий градієнт, який прелівається у фіолетовий */
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #f7f7f7;
+            padding: 20px 0;
+            text-align: center;
+        }
+        .logo img {
+            width: 100px; /* Розмір логотипу */
+        }
+        .title h1 {
+            color: #333; /* Колір заголовку */
+        }
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        nav ul li {
+            display: inline;
+            margin-right: 20px;
+        }
+        nav ul li a {
+            text-decoration: none;
+            color: #555; /* Колір посилань */
+        }
+        nav ul li a:hover {
+            color: #000; /* Колір посилань при наведенні */
+        }
+        section {
+            padding: 40px 0;
+            text-align: center;
+        }
+        .image-carousel-menu img {
+            max-width: 100%;
+            height: auto;
+        }
+        .desserts-grid {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin-top: 20px;
+        }
+        .flowers-item {
+            text-align: center;
+            width: 300px;
+        }
+        .flowers-item img {
+            max-width: 100%;
+            height: auto;
+        }
+        #about {
+            background-color: #f9f9f9; /* Фоновий колір розділу "Про нас" */
+        }
+        .footer {
+            background-color: #333; /* Фоновий колір підвалу */
+            color: #fff; /* Колір тексту підвалу */
+            padding: 40px 0;
+            text-align: center;
+        }
+        .contact-info {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .contact-info p {
+            margin: 10px 0;
+        }
+        .contact-info img {
+            width: 100px;
+            border-radius: 50%; /* Закругленість зображення */
+            margin-right: 20px;
+        }
+    </style>
+</head> 
+<body> 
+    <header class="header"> 
+        <div class="logo"> 
+            <a href="#"><img id="logoImg" src="flo1.jpeg" alt="Логотип"></a> 
+        </div> 
+        <div class="title"> 
+            <h1>Квіткова казка</h1> 
+            <p class="sub-title">У нас найкращі квіти</p> <!-- Додано клас sub-title --> 
+        </div> 
+        <nav class="nav-right"> 
+            <ul> 
+                <li><a href="#menu">у наявності</a></li> 
+                <li><a href="#about">Де ми розташовані</a></li> 
+                <li><a href="#contact">Контакти</a></li> 
+            </ul> 
+        </nav> 
+    </header> 
+        <section> 
+            <h2>Квіти у Львові</h2> 
+            <p>Пориньте у красу квітів</p>
+            <!-- Додано кнопку "Оформити замовлення" -->
+            <button id="orderButton">Оформити замовлення</button>
+        </section>
+        <!-- Модальне вікно для замовлення -->
+        <div id="myModal" class="modal">
+            <div class="modal-content">
+              <span class="close">&times;</span>
+              <p>Тут ви можете оформити ваше замовлення.</p>
+              <!-- Додайте форму для замовлення тут -->
+            </div>
+          </div>
+          
+          <script>
+          // JavaScript для функціональності модального діалогу
+          var modal = document.getElementById("myModal");
+          var btn = document.getElementById("orderButton");
+          var span = document.getElementsByClassName("close")[0];
+          
+          btn.onclick = function() {
+            modal.style.display = "block";
+          }
+          
+          span.onclick = function() {
+            modal.style.display = "none";
+          }
+          
+          window.onclick = function(event) {
+            if (event.target == modal) {
+              modal.style.display = "none";
+            }
+          }
+          
+          </script>
+          <div id="myModal" class="modal">
+              <div class="modal-content">
+                <span class="close">&times;</span>
+                <h2>Оформлення замовлення</h2>
+                <form id="orderForm">
+                  <label for="name">Ім'я:</label>
+                  <input type="text" id="name" name="name" required><br><br>
+                  <label for="email">Електронна пошта:</label>
+                  <input type="email" id="email" name="email" required><br><br>
+                  <label for="phone">Телефон:</label>
+                  <input type="tel" id="phone" name="phone" required><br><br>
+                  <label for="message">Повідомлення:</label><br>
+                  <textarea id="message" name="message" rows="4" cols="50"></textarea><br><br>
+                  <button type="submit">Готово</button>
+                </form>
+              </div>
+            </div>
+            <script>
+              var modal = document.getElementById("myModal");
+              var btn = document.getElementById("orderButton");
+              var span = document.getElementsByClassName("close")[0];
+              var form = document.getElementById("orderForm");
+              
+              btn.onclick = function() {
+                modal.style.display = "block";
+              }
+              
+              span.onclick = function() {
+                modal.style.display = "none";
+              }
+              
+              window.onclick = function(event) {
+                if (event.target == modal) {
+                  modal.style.display = "none";
+                }
+              }
+              
+              form.onsubmit = function(event) {
+                event.preventDefault(); // Запобігаємо стандартній поведінці форми
+                
+                // Отримуємо дані з форми
+                var name = document.getElementById("name").value;
+                var email = document.getElementById("email").value;
+                var phone = document.getElementById("phone").value;
+                var message = document.getElementById("message").value;
+              
+                // Тут можна виконати логіку для відправки даних або їх обробки
+              
+                // Після відправки можна скинути форму і закрити модальне вікно
+                form.reset();
+                modal.style.display = "none";
+              }
+              </script>
+                        
+      </section> 
+   
+      <section id="menu"> 
+          <h2 style="text-align: center;">Акційні пропозиції</h2>
+          <!-- Карусель --> 
+        <div class="image-carousel-menu"> 
+            <div><img src="shop1.png" alt="Фото 1"></div> 
+            <div><img src="shop2.png" alt="Фото 2"></div> 
+            <div><img src="shop3.png" alt="Фото 3"></div> 
+            <div><img src="shop4.png" alt="Фото 4"></div> 
+            <div><img src="shop5.png" alt="Фото 5"></div> 
+        </div> 
+        <h2 style="text-align: center;">Найпопулярніші пропозиції</h2> 
+        <div class="desserts-grid"> 
+            <div class="flowers-item"> 
+                <img src="fl1.jpg" alt="квітка 1"> 
+                <h3>Синій тюльпан</h3> 
+                <p>Один з кращих пізньоквітучих сортів, який відноситься до класу Махрові пізні тюльпани. Розкішний піоновидний тюльпан! Назва сорту перекладається як «Блакитний діамант».</p> 
+            </div> 
+            <div class="flowers-item"> 
+                <img src="fl2.jpg" alt="квітка 2"> 
+                <h3>Троянда</h3> 
+                <p>Троянда - це вишукана та красива квітка з гладкою, бархатистою або шорсткою поверхнею, що росте на кущах і може бути різноманітних кольорів, від білого до червоного, від рожевого до жовтого</p> 
+            </div> 
+            <div class="flowers-item"> 
+                <img src="fl3.jpg" alt="квітка 3"> 
+                <h3>Півонія</h3> 
+                <p>Півонія - це велика, витончена квітка з розкішними пелюстками, що можуть бути різних відтінків від білого до темно-червоного</p> 
+            </div> 
+        </div> 
+    </section> 
+     
+     
+ 
+    <section id="about"> 
+        <h2>Про нас</h2> 
+        <p>Ласкаво просимо до нашого квіткового магазину! Ми пропонуємо широкий вибір свіжих та якісних квітів для будь-яких подій та випадків. Долучайтеся до нашої квіткової родини і залишайтеся в захваті від краси кожного цвіту!</p> 
+        <div class="image-container"> 
+            <a href="https://www.google.com/maps/place/вул.+Галицька,+12,+Львів,+Україна" target="_blank"><img src="maps.png" alt="Фото карти"></a> 
+        </div> 
+    </section> 
+ 
+    <section id="contact" class="footer"> 
+        <div class="contact-info"> 
+            <img src="flshop.png" alt="фото" class="cafe-photo"> 
+            <div> 
+                <h2>Контакти</h2> 
+                <p>Телефон: <a href="tel:+380681889371">+380681889371</a></p> 
+                <p>Телеграм: <a href="https://t.me/veroniikagv">veroniikagv</a></p> 
+                <p>Інстаграм: <a href="https://www.instagram.com/veroniika.gv?igsh=cDU3Z28zdmVubjNh&utm_source=qr">veroniika.gv</a></p> 
+                            <p>ТікТок: <a href="https://www.tiktok.com/@wer.nick?_t=8lb5ekWJbcL&_r=1">wer.nick</a></p> 
+                            <p>© 2024 Квітковий магазин. Усі права захищені.</p> 
+                        </div> 
+                    </div> 
+                </section> 
+                             
+                <!-- Підключення бібліотеки jQuery --> 
+                <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> 
+                <!-- Підключення бібліотеки Slick Carousel --> 
+                <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script> 
+                <script> 
+                    $(document).ready(function(){ 
+                        var logoImages = ["caramel.jpg", "other_logo.jpg"]; // Масив фотографій для логотипу 
+                        var currentLogoIndex = 0; // Початковий індекс фотографії 
+             
+                        $('.logo a').click(function(e) { 
+                            e.preventDefault(); // Відміна стандартної дії посилання 
+                            $('#logoImg').attr('src', logoImages[currentLogoIndex]); // Зміна src фотографії логотипу 
+                            currentLogoIndex = (currentLogoIndex + 1) % logoImages.length; // Перехід до наступної фотографії (за кругом) 
+                        }); 
+             
+                        $('.image-carousel-menu').slick({ 
+                            autoplay: true,
